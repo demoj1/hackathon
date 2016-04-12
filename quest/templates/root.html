@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+
+{% block links %}
+<li class="hidden">
+    <a href="#page-top"></a>
+</li>
+{% if user.is_authenticated %}
+<li class="page-scroll">
+    <a href="{% url 'auth_logout'%}">Выход</a>
+</li>
+{% else %}
+<li class="page-scroll">
+    <a href="{% url 'auth_login'%}">Вход</a>
+</li>
+<li class="page-scroll">
+    <a href="{% url 'registration_register'%}">Регистрация</a>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="/static/img/profile.png" alt="">
+                <div class="intro-text">
+                    <span class="name">Супер хакатон лалал</span>
+                    <hr class="star-light">
+                    <span class="skills">Ищем таланты</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+{% if user.is_authenticated %}
+<section class="container" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Задание</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <p>Для того, что бы пройти задание...</p>
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 text-center">
+                <a href="#" class="btn btn-lg btn-outline">
+                    <i class="fa fa-download"></i> Подтвердить выполнение задания
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% else %}
+<section class="container" id="about">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Для получения задания необходимо авторизоваться.</h2>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}

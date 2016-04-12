@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+
+{% block links %}
+<li class="hidden">
+    <a href="#page-top"></a>
+</li>
+<li class="page-scroll">
+    <a href="{% url 'auth_login'%}">Вход</a>
+</li>
+{% endblock %}
+
+{% block content %}
+<header>
+    <br>
+    <br>
+</header>
+
+<section id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>Регистрация</h2>
+                <hr class="star-primary">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <form method="post" action="/accounts/register/">
+                {% csrf_token %}
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.username.label_tag }}</label>
+                            <input type="text" class="form-control" placeholder="Логин" id="id_username" name="username" maxlength="30" required data-validation-required-message="Заполните поле логин.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.first_name.label_tag }}</label>
+                            <input type="text" class="form-control" placeholder="Имя" id="id_first_name" name="first_name" maxlength="30" required data-validation-required-message="Заполните поле имя.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.last_name.label_tag }}</label>
+                            <input type="text" class="form-control" placeholder="Фамилия" id="id_last_name" name="last_name" maxlength="30" required data-validation-required-message="Заполните поле фамилия.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.email.label_tag }}</label>
+                            <input type="email" class="form-control" placeholder="E-mail" id="id_email" name="email" maxlength="30" required data-validation-required-message="Заполните поле e-mail.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.group.label_tag }}</label>
+                            <input type="text" class="form-control" placeholder="Группа" id="id_group" name="group" maxlength="30" required data-validation-required-message="Заполните поле группа.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.password1.label_tag }}</label>
+                            <input type="password" class="form-control" placeholder="Пароль" id="id_password1" name="password1" maxlength="30" required data-validation-required-message="Заполните поле пароль.">
+                            <p class="help-block text-danger"></p>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.password2.label_tag }}</label>
+                            <input type="password" class="form-control" placeholder="Подтверждение пароля" id="id_password2" name="password2" maxlength="30" required data-validation-required-message="Заполните поле пароль.">
+                            <p class="help-block text-danger">{{ form.password2.hint }}</p>
+                        </div>
+                    </div>
+                    <br>
+                    <div id="success"></div>
+                    <div class="row">
+                        <div class="form-group col-xs-12">
+                            <button type="submit" value="login" class="btn btn-success btn-lg">Отправить</button>
+                            <input type="hidden" name="next" value="{{ next }}" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+
+<p>Go to login pagessss <a href="{% url 'auth_login'%}">link</a></p>

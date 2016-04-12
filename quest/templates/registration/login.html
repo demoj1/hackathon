@@ -30,7 +30,9 @@
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             {{ form.username.label_tag }}
                             <input type="text" class="form-control" placeholder="Имя" id="id_username" name="username" required data-validation-required-message="Заполните поле логин.">
-                            <p class="help-block text-danger"></p>
+                            {% for e in form.username.errors %}
+                                <p class="help-block text-danger">{{ e }}</p>
+                            {% endfor %}
                         </div>
                     </div>
                     <br>
@@ -38,9 +40,14 @@
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             {{ form.password.label_tag }}
                             <input type="password" class="form-control" placeholder="Пароль" id="id_password" name="password" required data-validation-required-message="Заполните поле пароль.">
-                            <p class="help-block text-danger"></p>
+                            {% for e in form.password.errors %}
+                                <p class="help-block text-danger">{{ e }}</p>
+                            {% endfor %}
                         </div>
                     </div>
+                    {% for e in form.non_field_errors %}
+                        <p class="help-block text-danger">{{ e }}</p>
+                    {% endfor %}
                     <br>
                     <div id="success"></div>
                     <div class="row">

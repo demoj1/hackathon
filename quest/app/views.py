@@ -5,3 +5,6 @@ from django.contrib.auth.decorators import login_required
 
 def quest(r):
     return render(r, "root.html")
+
+def page_404(r):
+    return render(r, "404.html")

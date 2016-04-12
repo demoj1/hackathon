@@ -15,3 +15,5 @@ urlpatterns = [
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^$', quest),
 ]
+
+handler404 = 'app.views.page_404'

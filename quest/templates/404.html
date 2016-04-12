@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block links %}
+<li class="hidden">
+    <a href="/"></a>
+</li>
+{% if user.is_authenticated %}
+<li class="page-scroll">
+    <a href="{% url 'auth_logout'%}">Выход</a>
+</li>
+{% else %}
+<li class="page-scroll">
+    <a href="{% url 'auth_login'%}">Вход</a>
+</li>
+<li class="page-scroll">
+    <a href="{% url 'registration_register'%}">Регистрация</a>
+</li>
+{% endif %}
+{% endblock %}
+
+{% block content %}
+<style>
+    html {
+            -moz-transform: scaleY(-1);
+            -o-transform: scaleY(-1);
+            -webkit-transform: scaleY(-1);
+            transform: scaleY(-1);
+            filter: FlipV;
+            -ms-filter: "FlipV";
+    }
+
+    div.footer-below {
+        display: none;
+    }
+</style>
+<header class="flip">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="/static/img/profile.png" alt="">
+                <div class="intro-text">
+                    <span class="name">404</span>
+                    <hr class="star-light">
+                    <span class="skills">Не найдено</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+{% endblock %}

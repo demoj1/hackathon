@@ -9,8 +9,6 @@ RUN apk add --no-cache gcc python3 postgresql-dev python3-dev musl-dev
 RUN pip install gunicorn meinheld
 RUN pip install -r requirements.txt
 
-RUN python3 manage.py collectstatic --noinput
-
 EXPOSE 8000
 
 CMD ["gunicorn", "-w", "2", "--worker-class=meinheld.gmeinheld.MeinheldWorker", \

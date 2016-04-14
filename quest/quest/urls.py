@@ -7,13 +7,13 @@ from app.views import quest
 
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^accounts/register/$', RegistrationView.as_view(
+    url(r'^hackathon/admin/', admin.site.urls),
+    url(r'^hackathon/accounts/register/$', RegistrationView.as_view(
             form_class=CustomUserForm),
         name='registration_register'
     ),
-    url(r'^accounts/', include('registration.backends.simple.urls')),
-    url(r'^$', quest),
+    url(r'^hackathon/accounts/', include('registration.backends.simple.urls')),
+    url(r'^hackathon$', quest),
 ]
 
 handler404 = 'app.views.page_404'

@@ -15,7 +15,7 @@ urlpatterns = [
             success_url='/hackathon/',
     ),
     url(r'^hackathon/accounts/', include('registration.backends.simple.urls')),
-    url(r'^hackathon/', quest),
+    url(r'^hackathon/$', quest),
 ]
 
 handler404 = 'app.views.page_404'

@@ -29,7 +29,7 @@ ALLOWED_HOSTS = ['10.1.1.155', 'dissw.nkfi.ru']
 
 AUTH_USER_MODEL = 'app.UserProfile'
 #LOGIN_URL = 'accounts/login'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/hackathon/'
 
 # Application definition
 

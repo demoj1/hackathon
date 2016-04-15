@@ -70,7 +70,7 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.group.label_tag }}</label>
-                            <input  title="Пример: ФИТ/ПМБ-15" pattern="\W+?[/]\W+?[-]\d+" type="text" class="form-control" placeholder="Факультет/Группа" id="id_group" name="group" maxlength="50" required data-validation-required-message="Заполните поле факультет/группа.">
+                            <input  title="Пример: ФИТ/ПМБ-15" pattern="[а-яА-Я]+[/][а-яА-Я]+[-]\d+" type="text" class="form-control" placeholder="Факультет/Группа" id="id_group" name="group" maxlength="50" required data-validation-required-message="Заполните поле факультет/группа.">
                             {% for e in form.group.errors %}
                                 <p class="help-block text-danger">{{ e }}</p>
                             {% endfor %}

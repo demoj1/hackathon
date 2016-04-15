@@ -1,14 +1,14 @@
 from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
-from registration.backends.simple.views import RegistrationView
+from app.views import RegistrationRedirectView
 from app.forms import CustomUserForm
 from app.views import quest
 
 
 urlpatterns = [
     url(r'^hackathon/admin/', admin.site.urls),
-    url(r'^hackathon/accounts/register/$', RegistrationView.as_view(
+    url(r'^hackathon/accounts/register/$', RegistrationRedirectView.as_view(
         form_class=CustomUserForm,),
         name='registration_register',
        ),

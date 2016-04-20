@@ -8,7 +8,7 @@ from registration.backends.simple.views import RegistrationView
 
 class RegistrationRedirectView(RegistrationView):
     def get_success_url(self, user):
-        return reverse("app:root")
+        return reverse("root")
 
 def quest(r):
     return render(r, "root.html")

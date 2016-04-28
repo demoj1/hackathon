@@ -14,4 +14,4 @@ class CustomUserForm(RegistrationForm):
 
     class Meta:
         model = UserProfile
-        fields = ('username', 'group', 'first_name', 'last_name',)
+        fields = ('username', 'group', 'first_name', 'last_name', 'email')

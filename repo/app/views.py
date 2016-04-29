@@ -16,14 +16,14 @@ class RegistrationRedirectView(RegistrationView):
     def get_success_url(self, user):
         return reverse("app:root")
 
-def quest(r):
-    return render(r, "root.html")
+def quest(request):
+    return render(request, "root.html")
 
-def page_404(r):
-    return render(r, "404.html")
+def page_404(request):
+    return render(request, "404.html")
 
 @login_required
-def profile(r):
-    instance = get_object_or_404(UserProfile, id=r.user.id)
-    form = ProfileUserForm(instance=instance)
+def profile(request):
+    instance = UserProfile.objects.get(pk=request.user.id)
+    form = CustomUserForm(instance=instance)
     return render_to_response("registration/profile.html", {"form": form})

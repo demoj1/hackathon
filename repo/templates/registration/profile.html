@@ -70,6 +70,16 @@
                         </div>
                     </div>
                     <br>
+                    <div class="row control-group">
+                        <div class="form-group col-xs-12 floating-label-form-group controls">
+                            <label>{{ form.telephone.label_tag }}</label>
+                            <input type="text" class="form-control" placeholder="Телефон" id="id_telephone" name="telephone" maxlength="12" required data-validation-required-message="Заполните поле телефон." value="{{ form.telephone.value }}">
+                            {% for e in form.telephone.errors %}
+                                <p class="help-block text-danger">{{ e }}</p>
+                            {% endfor %}
+                        </div>
+                    </div>
+                    <br>
                     {% for e in form.non_field_errors %}
                         <p class="help-block text-danger">{{ e }}</p>
                     {% endfor %}

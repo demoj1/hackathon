@@ -22,14 +22,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>Регистрация</h2>
+                <h2>Редактирование профиля</h2>
                 <hr class="star-primary">
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2">
                 <form method="post" action="{% url 'registration_register' %}">
-                {% csrf_token %}
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.first_name.label_tag }}</label>

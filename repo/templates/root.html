@@ -10,6 +10,9 @@
     <a id="sub-proj-ref" href="#">Сдать задание</a>
 </li>
 <li class="page-scroll">
+    <a href="{% url 'profile' %}">Профиль</a>
+</li>
+<li class="page-scroll">
     <a href="{% url 'auth_logout'%}">Выход</a>
 </li>
 {% else %}
@@ -48,6 +51,14 @@
             </div>
         </div>
         <div class="row">
+            <div class="col-lg-12">
+                <h3>29.04.2016.</h3>
+                <h4>Уважаемые участники, в связи с некоторыми проблемами просим вас повторно заполнить недостающие поля.
+                </h4>
+                <a href="{% url 'profile' %}">
+                    Ссылка на профиль.
+                </a>
+            </div>
             <div class="col-lg-12">
                 <h3>29.04.2016.</h3>
                 <h4>Мы создали группу в Telegram,

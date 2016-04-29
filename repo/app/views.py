@@ -25,5 +25,13 @@ def page_404(request):
 @login_required
 def profile(request):
     instance = UserProfile.objects.get(pk=request.user.id)
-    form = ProfileUserForm(instance=instance)
+    if request.method == "POST":
+        form = ProfileUserForm(request.POST, instance=instance)
+        if form.is_valid():
+            puf = form.save(commit=False)
+            puf.user = request.user
+            puf.save()
+    else:
+        form = ProfileUserForm(instance=instance)
+        
     return render_to_response("registration/profile.html", {"form": form})

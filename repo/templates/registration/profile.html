@@ -33,7 +33,7 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.username.label_tag }}</label>
-                            <input type="text" class="form-control" placeholder="Логин" id="id_username" name="username" maxlength="30" required data-validation-required-message="Заполните поле логин." value={{ form.usrname }}>
+                            <input type="text" class="form-control" placeholder="Логин" id="id_username" name="username" maxlength="30" required data-validation-required-message="Заполните поле логин." value="{{ form.username }}">
                             {% for e in form.username.errors %}
                                 <p class="help-block text-danger">{{ e }}</p>
                             {% endfor %}

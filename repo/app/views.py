@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
+from django.template import RequestContext
 
 from app.forms import CustomUserForm
 from app.forms import ProfileUserForm
@@ -33,5 +34,6 @@ def profile(request):
             puf.save()
     else:
         form = ProfileUserForm(instance=instance)
-        
-    return render_to_response("registration/profile.html", {"form": form})
+        return render_to_response("registration/profile.html", {"form": form})
+
+    return render_to_response("registration/profile.html", locals(), context_instance=RequestContext(request))

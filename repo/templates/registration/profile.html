@@ -1,0 +1,13 @@
+{% extends "registration_form.html" %}
+
+{% block links %}
+<li class="hidden">
+    <a href="/hackathon/"></a>
+</li>
+<li class="page-scroll">
+    <a id="sub-proj-ref" href="#">Сдать задание</a>
+</li>
+<li class="page-scroll">
+    <a href="{% url 'auth_logout'%}">Выход</a>
+</li>
+{% endblock %}

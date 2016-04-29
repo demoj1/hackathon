@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 
 from app.forms import CustomUserForm
+from app.forms import ProfileUserForm
 from app.models import UserProfile
 
 from registration.backends.simple.views import RegistrationView
@@ -24,5 +25,5 @@ def page_404(r):
 @login_required
 def profile(r):
     instance = get_object_or_404(UserProfile, id=r.user.id)
-    form = CustomUserForm(instance=instance)
+    form = ProfileUserForm(instance=instance)
     return render_to_response("registration/profile.html", {"form": form})

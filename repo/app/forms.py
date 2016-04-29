@@ -14,4 +14,10 @@ class CustomUserForm(RegistrationForm):
 
     class Meta:
         model = UserProfile
-        fields = ('username', 'group', 'first_name', 'last_name', 'email')
+        fields = ('username', 'group', 'first_name', 'last_name', 'email',)
+
+class ProfileUserForm(forms.ModelForm):
+    class Meta:
+        model = UserProfile
+        fields = ("first_name", "last_name", "email", "group",)
+

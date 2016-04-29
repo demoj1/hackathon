@@ -4,7 +4,7 @@ from django.contrib import admin
 from app.views import RegistrationRedirectView
 from app.forms import CustomUserForm
 from app.views import quest
-
+from app.views import profile
 
 urlpatterns = [
     url(r'^hackathon/admin/', admin.site.urls),
@@ -14,6 +14,7 @@ urlpatterns = [
        ),
     url(r'^hackathon/accounts/', include('registration.backends.simple.urls')),
     url(r'^hackathon/$', quest, name="root"),
+    url(r'^hackathon/accounts/profile/', profile),
 ]
 
 handler404 = 'app.views.page_404'

@@ -34,6 +34,6 @@ def profile(request):
             puf.save()
     else:
         form = ProfileUserForm(instance=instance)
-        return render_to_response("registration/profile.html", {"form": form})
+        return render(request, "registration/profile.html", {"form": form})
 
-    return render_to_response("registration/profile.html", locals(), context_instance=RequestContext(request))
+    return render(request, "registration/profile.html", locals())

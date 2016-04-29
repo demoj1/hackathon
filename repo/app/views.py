@@ -20,7 +20,7 @@ def page_404(r):
     return render(r, "404.html")
 
 @login_required
-def profile(r, id):
-    instance = get_object_or_404(UserProfile, id=id)
+def profile(r):
+    instance = get_object_or_404(UserProfile, id=r.user.id)
     form = CustomUserForm(instance=instance)
     return render(r, "registration/profile.html", {"form": form})

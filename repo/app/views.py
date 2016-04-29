@@ -25,4 +25,4 @@ def page_404(r):
 def profile(r):
     instance = get_object_or_404(UserProfile, id=r.user.id)
     form = CustomUserForm(instance=instance)
-    return render_to_response(r, "registration/profile.html", {"form": form})
+    return render_to_response("registration/profile.html", {"form": form})

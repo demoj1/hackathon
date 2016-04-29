@@ -29,9 +29,7 @@ def profile(request):
     if request.method == "POST":
         form = ProfileUserForm(request.POST, instance=instance)
         if form.is_valid():
-            puf = form.save(commit=False)
-            puf.user = request.user
-            puf.save()
+            form.save()
     else:
         form = ProfileUserForm(instance=instance)
         return render(request, "registration/profile.html", {"form": form})

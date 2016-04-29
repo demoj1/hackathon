@@ -32,18 +32,8 @@
                 {% csrf_token %}
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>{{ form.username.label_tag }}</label>
-                            <input type="text" class="form-control" placeholder="Логин" id="id_username" name="username" maxlength="30" required data-validation-required-message="Заполните поле логин." value="{{ form.username.value }}">
-                            {% for e in form.username.errors %}
-                                <p class="help-block text-danger">{{ e }}</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.first_name.label_tag }}</label>
-                            <input type="text" class="form-control" placeholder="Имя" id="id_first_name" name="first_name" maxlength="30" required data-validation-required-message="Заполните поле имя." value={{ form.first_name }}>
+                            <input type="text" class="form-control" placeholder="Имя" id="id_first_name" name="first_name" maxlength="30" required data-validation-required-message="Заполните поле имя." value="{{ form.first_name.value }}">
                             {% for e in form.first_name.errors %}
                                 <p class="help-block text-danger">{{ e }}</p>
                             {% endfor %}
@@ -53,7 +43,7 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.last_name.label_tag }}</label>
-                            <input type="text" class="form-control" placeholder="Фамилия" id="id_last_name" name="last_name" maxlength="30" required data-validation-required-message="Заполните поле фамилия.">
+                            <input type="text" class="form-control" placeholder="Фамилия" id="id_last_name" name="last_name" maxlength="30" required data-validation-required-message="Заполните поле фамилия." value="{{ form.last_name.value }}">
                             {% for e in form.last_name.errors %}
                                 <p class="help-block text-danger">{{ e }}</p>
                             {% endfor %}
@@ -63,7 +53,7 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.email.label_tag }}</label>
-                            <input type="email" class="form-control" placeholder="E-mail" id="id_email" name="email" maxlength="30" required data-validation-required-message="Заполните поле e-mail.">
+                            <input type="email" class="form-control" placeholder="E-mail" id="id_email" name="email" maxlength="30" required data-validation-required-message="Заполните поле e-mail." value="{{ form.email.value }}">
                             {% for e in form.email.errors %}
                                 <p class="help-block text-danger">{{ e }}</p>
                             {% endfor %}
@@ -73,32 +63,13 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.group.label_tag }}</label>
-                            <input  title="Пример: ФИТ/ПМБ-15" pattern="[а-яА-Я]+[/][а-яА-Я]+[-]\d+" type="text" class="form-control" placeholder="Факультет/Группа" id="id_group" name="group" maxlength="50" required data-validation-required-message="Заполните поле факультет/группа.">
+                            <input  title="Пример: ФИТ/ПМБ-15" pattern="[а-яА-Я]+[/][а-яА-Я]+[-]\d+" type="text" class="form-control" placeholder="Факультет/Группа" id="id_group" name="group" maxlength="50" required data-validation-required-message="Заполните поле факультет/группа." value="{{ form.group.value }}">
                             {% for e in form.group.errors %}
                                 <p class="help-block text-danger">{{ e }}</p>
                             {% endfor %}
                         </div>
                     </div>
                     <br>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>{{ form.password1.label_tag }}</label>
-                            <input type="password" class="form-control" placeholder="Пароль" id="id_password1" name="password1" maxlength="30" required data-validation-required-message="Заполните поле пароль.">
-                            {% for e in form.password1.errors %}
-                                <p class="help-block text-danger">{{ e }}</p>
-                            {% endfor %}
-                        </div>
-                    </div>
-                    <br>
-                    <div class="row control-group">
-                        <div class="form-group col-xs-12 floating-label-form-group controls">
-                            <label>{{ form.password2.label_tag }}</label>
-                            <input type="password" class="form-control" placeholder="Подтверждение пароля" id="id_password2" name="password2" maxlength="30" required data-validation-required-message="Заполните поле пароль.">
-                            {% for e in form.password2.errors %}
-                                <p class="help-block text-danger">{{ e }}</p>
-                            {% endfor %}
-                        </div>
-                    </div>
                     {% for e in form.non_field_errors %}
                         <p class="help-block text-danger">{{ e }}</p>
                     {% endfor %}

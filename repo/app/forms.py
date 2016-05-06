@@ -1,6 +1,8 @@
-from registration.forms import RegistrationForm
-from app.models import UserProfile
 from django import forms
+from registration.forms import RegistrationForm
+
+from app.models import UserProfile
+from app.models import Report
 
 
 class CustomUserForm(RegistrationForm):
@@ -22,3 +24,7 @@ class ProfileUserForm(forms.ModelForm):
         model = UserProfile
         fields = ("first_name", "last_name", "email", "group", 'telephone',)
 
+class ReportForm(forms.ModelForm):
+    class Meta:
+        models = Report
+        fields = ("heroku_url", "github_url", "notes",)

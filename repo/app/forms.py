@@ -15,16 +15,20 @@ class CustomUserForm(RegistrationForm):
     password1 = forms.PasswordInput()
     password2 = forms.PasswordInput()
 
+
     class Meta:
         model = UserProfile
         fields = ('username', 'group', 'first_name', 'last_name', 'email', 'telephone',)
+
 
 class ProfileUserForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ("first_name", "last_name", "email", "group", 'telephone',)
 
+
 class ReportForm(forms.ModelForm):
     class Meta:
         model = Report
-        fields = ("heroku_url", "github_url", "notes", "user",)
+        fields = ("heroku_url", "github_url", "notes", )
+        exclude = ("user", )

@@ -27,7 +27,7 @@ def page_404(request):
 
 @login_required
 def report_view(request):
-    user_instance = UserProfile.objects.get(pk=request.user.id)
+    user_instance = request.user
 
     if request.method == "POST":
         form = ReportForm(request.POST)
@@ -44,7 +44,7 @@ def report_view(request):
 
 @login_required
 def profile(request):
-    instance = UserProfile.objects.get(pk=request.user.id)
+    instance = request.user
     if request.method == "POST":
         form = ProfileUserForm(request.POST, instance=instance)
         if form.is_valid():

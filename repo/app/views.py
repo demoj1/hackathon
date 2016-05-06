@@ -30,15 +30,17 @@ def report_view(request):
     user_instance = request.user
 
     if request.method == "POST":
-        form = ReportForm(request.POST)
-        form.user = user_instance
+        report = user_instance.report_set.first()
+        if report is None:
+            form = ReportForm(request.POST, initial={'user': user_instance})
+        else:
+            form = ReportForm(request.POST, instance=report)
 
         if form.is_valid():
             form.save()
             return HttpResponseRedirect(reverse("root"))
     else:
-        form = ReportForm()
-        form.user = user_instance
+        form = ReportForm(instance=user_instance.report_set.first())
 
     return render(request, "report.html", {"form": form})
 

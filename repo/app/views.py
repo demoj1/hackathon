@@ -25,6 +25,7 @@ def quest(request):
 def page_404(request):
     return render(request, "404.html")
 
+@login_required
 def report_view(request):
     user_instance = UserProfile.objects.get(pk=request.user.id)
 

@@ -4,9 +4,11 @@ from django.shortcuts import render_to_response
 from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
+from django.http import HttpResponseRedirect
 
 from app.forms import CustomUserForm
 from app.forms import ProfileUserForm
+from app.forms import ReportForm
 from app.models import UserProfile
 
 from registration.backends.simple.views import RegistrationView
@@ -22,6 +24,22 @@ def quest(request):
 
 def page_404(request):
     return render(request, "404.html")
+
+def report_view(request):
+user_instance = UserProfile.objects.get(pk=request.user.id)
+
+    if request.method == "POST":
+        form = ReportForm(request.POST)
+        form.user = user_instance
+
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect(reverse("root"))
+    else:
+        form = ReportForm()
+        form.user = user_instance
+
+    return render(request, "report.html", {"form": form})
 
 @login_required
 def profile(request):

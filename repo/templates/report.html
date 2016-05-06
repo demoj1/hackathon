@@ -50,7 +50,7 @@
                     <div class="row control-group">
                         <div class="form-group col-xs-12 floating-label-form-group controls">
                             <label>{{ form.notes.label_tag }}</label>
-                            <textarea class="form-control" placeholder="Примечания" rows="5" id="id_notes" name="notes" value="{{ form.notes.value }}">
+                            <textarea class="form-control" placeholder="Примечания" rows="5" id="id_notes" name="notes" value="{{ form.notes.value }}"></textarea>
                             {% for e in form.notes.errors %}
                                 <p class="help-block text-danger">{{ e }}</p>
                             {% endfor %}

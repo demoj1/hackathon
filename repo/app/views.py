@@ -26,7 +26,7 @@ def page_404(request):
     return render(request, "404.html")
 
 def report_view(request):
-user_instance = UserProfile.objects.get(pk=request.user.id)
+    user_instance = UserProfile.objects.get(pk=request.user.id)
 
     if request.method == "POST":
         form = ReportForm(request.POST)

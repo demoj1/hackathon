@@ -13,17 +13,19 @@ from app.models import UserProfile
 
 from registration.backends.simple.views import RegistrationView
 
-# Create your views here.
 
 class RegistrationRedirectView(RegistrationView):
     def get_success_url(self, user):
         return reverse("app:root")
 
+
 def quest(request):
     return render(request, "root.html")
 
+
 def page_404(request):
     return render(request, "404.html")
+
 
 @login_required
 def report_view(request):
@@ -31,18 +33,17 @@ def report_view(request):
 
     if request.method == "POST":
         report = user_instance.report_set.first()
-        if report is None:
-            form = ReportForm(request.POST, initial={'user': user_instance})
-        else:
-            form = ReportForm(request.POST, instance=report)
+        form = ReportForm(request.POST, instance=report)
 
         if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse("root"))
+            report = form.save(commit=False)
+            report.user = user_instance
+            report.save()
     else:
         form = ReportForm(instance=user_instance.report_set.first())
 
     return render(request, "report.html", {"form": form})
+
 
 @login_required
 def profile(request):

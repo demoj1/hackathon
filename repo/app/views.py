@@ -5,6 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
 from django.template import RequestContext
 from django.http import HttpResponseRedirect
+from django.contrib import messages
 
 from app.forms import CustomUserForm
 from app.forms import ProfileUserForm
@@ -39,6 +40,7 @@ def report_view(request):
             report = form.save(commit=False)
             report.user = user_instance
             report.save()
+            messages.success(request, "Информация о работе сохранена.")
     else:
         form = ReportForm(instance=user_instance.report_set.first())
 

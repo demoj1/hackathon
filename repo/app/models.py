@@ -15,3 +15,10 @@ class Report(models.Model):
     github_url = models.CharField(max_length=200, default="", null=False)
 
     notes = models.TextField()
+
+    def __str__(self):
+        return "Работа участника {}".format(self.user)
+
+    class Meta:
+         verbose_name = "Отчет о работе"
+         verbose_name_plural = "Отчеты о работе"

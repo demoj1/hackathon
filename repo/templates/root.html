@@ -3,7 +3,7 @@
 
 {% block links %}
 <li class="hidden">
-    <a href="/hackathon/"></a>
+    <a href="{% url 'root' %}"></a>
 </li>
 {% if user.is_authenticated %}
 <li class="page-scroll">

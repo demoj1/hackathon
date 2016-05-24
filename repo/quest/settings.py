@@ -25,12 +25,13 @@ SECRET_KEY = 'jqcq&kgifu_^&$_u3&%hj^dzw6*lfl0r9txy)v2tu%fi+4#^sd'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['10.1.1.155', 'dissw.nkfi.ru']
+ALLOWED_HOSTS = ['hackathon.dissw.ru']
+
 
 AUTH_USER_MODEL = 'app.UserProfile'
 #LOGIN_URL = 'accounts/login'
-LOGIN_REDIRECT_URL = '/hackathon/'
-LOGIN_URL = "/hackathon/accounts/login/"
+LOGIN_REDIRECT_URL = '/'
+LOGIN_URL = "/accounts/login/"
 
 # Application definition
 
@@ -129,5 +130,5 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
-STATIC_URL = '/hackathon/static/'
+STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')

@@ -10,15 +10,15 @@ from app.views import report_view
 
 
 urlpatterns = [
-    url(r'^hackathon/admin/', admin.site.urls),
-    url(r'^hackathon/accounts/register/$', RegistrationRedirectView.as_view(
+    url(r'^admin/', admin.site.urls),
+    url(r'^accounts/register/$', RegistrationRedirectView.as_view(
         form_class=CustomUserForm,),
         name='registration_register',
        ),
-    url(r'^hackathon/accounts/', include('registration.backends.simple.urls')),
-    url(r'^hackathon/$', quest, name="root"),
-    url(r'^hackathon/accounts/profile/', profile, name="profile"),
-    url(r'^hackathon/report/$', report_view, name="report"),
+    url(r'^accounts/', include('registration.backends.simple.urls')),
+    url(r'^$', quest, name="root"),
+    url(r'^accounts/profile/', profile, name="profile"),
+    url(r'^report/$', report_view, name="report"),
 ]
 
 handler404 = 'app.views.page_404'
